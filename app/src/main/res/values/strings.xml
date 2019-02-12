@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KK</string>
+    <string name="item_1">Namaz</string>
+    <string name="item_2">Kuran</string>
+    <string name="item_3">Asma</string>
+
+    <string name="bab">.Bab</string>
+    <string name="empty"> </string>
+</resources>

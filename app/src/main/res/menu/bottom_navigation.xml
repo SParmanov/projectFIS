@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/namaz"
+        android:icon="@drawable/icon_namaz"
+        android:title="@string/item_1"
+        />
+    <item
+        android:id="@+id/kuran"
+        android:icon="@drawable/icon_kuran"
+        android:title="@string/item_2"
+        />
+    <item
+        android:id="@+id/asma"
+        android:icon="@drawable/icon_asma"
+        android:title="@string/item_3"
+        />
+</menu>
