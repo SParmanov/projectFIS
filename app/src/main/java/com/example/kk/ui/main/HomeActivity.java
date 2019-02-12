@@ -1,4 +1,4 @@
-package com.example.kk;
+package com.example.kk.ui.main;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -6,6 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.example.kk.ui.asma.AsmaFragment;
+import com.example.kk.ui.kuran.KuranFragment;
+import com.example.kk.ui.namaz.NamazFragment;
+import com.example.kk.R;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -17,8 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemReselectedListener(navigationItemReselectedListener);
 
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new KuranFragment()).commit();
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new KuranFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemReselectedListener navigationItemReselectedListener =
@@ -36,6 +40,9 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                         case R.id.asma:
                             selectedFragment = new AsmaFragment();
+                            break;
+                        default:
+                            selectedFragment = new NamazFragment();
                             break;
                     }
 

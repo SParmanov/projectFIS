@@ -1,10 +1,12 @@
-package com.example.kk;
+package com.example.kk.ui;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.kk.R;
+import com.example.kk.ui.main.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,13 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                Intent homeIntent = new Intent(MainActivity.this,HomeActivity.class);
+                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(homeIntent);
                 finish();
             }
