@@ -3,6 +3,7 @@ package com.example.kk.ui.main;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -22,7 +23,11 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemReselectedListener(navigationItemReselectedListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new KuranFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NamazFragment()).commit();
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
     }
 
     private BottomNavigationView.OnNavigationItemReselectedListener navigationItemReselectedListener =

@@ -1,5 +1,6 @@
 package com.example.kk.ui.kuran;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kk.R;
@@ -27,11 +29,36 @@ public class KuranFragment  extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ListView surasList = view.findViewById(R.id.list_sura);
 
+        String []kazakh_names = getResources().getStringArray(R.array.kazakh_names);
+        String []arabic_names = getResources().getStringArray(R.array.arabic_names);
+        String [] kuranAddress = getResources().getStringArray(R.array.suraAddress);
+        String [] suraLength = getResources().getStringArray(R.array.suraLength);
+
+
         ArrayList<Sura> suras = new ArrayList<>();
-        suras.add(new Sura("content 1", "title 1", 1, Sura.FROM_MEDINA));
-        suras.add(new Sura("content 2", "title 2", 2, Sura.FROM_MEKKE));
+        for(int i=0;i<114;i++){
+            suras.add(new Sura(i+1 , kazakh_names[i], arabic_names[i], suraLength[i] +"",kuranAddress[i] ));
+        }
+
+
+
 
         SurasAdapter adapter = new SurasAdapter(suras);
-        surasList.setAdapter(adapter);
+
+
+        ListView listView = view.findViewById(R.id.kuranlist);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(KuranFragment.this, KuranDetailActivity.class);
+                intent.putExtra(KuranDetailActivity.ARG_ID, suras.get(position).id);
+                startActivity(intent);
+            }
+        });
+
+        //surasList.setAdapter(adapter);
+        listView.setAdapter(adapter);
     }
 }

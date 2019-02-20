@@ -1,6 +1,7 @@
 package com.example.kk.ui.kuran;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,9 @@ public class SurasAdapter extends BaseAdapter {
 
     private ArrayList<Sura> suras;
 
+
+
+
     public SurasAdapter(ArrayList<Sura> suras) {
         this.suras = suras;
     }
@@ -26,6 +30,7 @@ public class SurasAdapter extends BaseAdapter {
         return suras.size();
     }
 
+
     @Override
     public Object getItem(int position) {
         return suras.get(position);
@@ -33,7 +38,7 @@ public class SurasAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return suras.get(position).getNumber();
+        return suras.get(position).getId();
     }
 
     @SuppressLint("DefaultLocale")
@@ -41,16 +46,25 @@ public class SurasAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sura, parent, false);
-        TextView name = convertView.findViewById(R.id.text_name);
-        TextView content = convertView.findViewById(R.id.text_content);
-        TextView from = convertView.findViewById(R.id.text_from);
-        TextView number = convertView.findViewById(R.id.text_number);
+
+        TextView empty =  convertView.findViewById(R.id.id);
+        TextView kazakh_names = convertView.findViewById(R.id.kazakh_names);
+        TextView arabic_names = convertView.findViewById(R.id.arabic_names);
+        TextView lengthSura = convertView.findViewById(R.id.lengthSura);
+        TextView kuranAddress =  convertView.findViewById(R.id.kuranAddress);
+
+
 
         Sura sura = suras.get(position);
-        name.setText(sura.getTitle());
-        content.setText(sura.getContent());
-        from.setText(sura.getType() == Sura.FROM_MEKKE ? "Mekka" : "Medina");
-        number.setText(String.format("%d's surah", sura.getNumber()));
+
+        //empty.setText(sura.getId());
+        empty.setText(String.format("%d%s", sura.getId(),""));
+        kazakh_names.setText(sura.getKazakh_names());
+        arabic_names.setText(sura.getArabic_names());
+        lengthSura.setText(sura.getLengthSura()+" аят");
+        kuranAddress.setText(sura.getKuranAddress());
+        
+
         return convertView;
     }
 }

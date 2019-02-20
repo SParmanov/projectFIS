@@ -1,35 +1,40 @@
+
 package com.example.kk.model;
 
 public class Sura {
 
-    public static final byte FROM_MEDINA = 0;
-    public static final byte FROM_MEKKE = 1;
+    public int id;
+    public String kazakh_names;
+    public String arabic_names;
+    public String  lengthSura;
+    public String kuranAddress;
 
-    private String content;
-    private String title;
-    private int number;
-    private byte type; //Where Medina or Mekka
 
-    public Sura(String content, String title, Integer number, byte type) {
-        this.content = content;
-        this.title = title;
-        this.number = number;
-        this.type = type;
+    public Sura(Integer id,String kazakh_names, String arabic_names, String lengthSura, String kuranAddress) {
+        this.id=id;
+        this.kazakh_names = kazakh_names;
+        this.arabic_names = arabic_names;
+        this.lengthSura = lengthSura;
+        this.kuranAddress = kuranAddress;
     }
 
-    public String getContent() {
-        return content;
+    public int getId() {
+        return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getKazakh_names() {
+        return kazakh_names;
     }
 
-    public Integer getNumber() {
-        return number;
+    public String getArabic_names() {
+        return arabic_names;
     }
 
-    public byte getType() {
-        return type;
+    public String getLengthSura() {
+        return lengthSura;
+    }
+
+    public String getKuranAddress() {
+        return kuranAddress;
     }
 }

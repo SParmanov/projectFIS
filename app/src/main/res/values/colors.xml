@@ -3,12 +3,23 @@
     <color name="colorPrimary">#fff</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
     
     <color name="violet">#6c609e</color>
     <color name="yellow">#fffa9c</color>
     <color name="pink">#dd127b</color>
     <color name="orange">#f8c301</color>
 
+
+    <color name="color0">#9265b8</color>
+        <color name="color00">#765194</color>
+    <color name="color1">#1bbc9b</color>
+        <color name="color11">#16967d</color>
+    <color name="color2">#ec6b56</color>
+        <color name="color22">#bf5440</color>
+    <color name="color3">#54acd2</color>
+        <color name="color33">#418ba8</color>
 
     <color name="colorWhite">#fff</color>
     <color name="colorGray">#e9ecea</color>
