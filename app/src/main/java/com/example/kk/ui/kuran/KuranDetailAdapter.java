@@ -7,15 +7,18 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
+
+import com.example.kk.R;
+
+
 
 public class KuranDetailAdapter extends ArrayAdapter<KuranDetailWord> {
     private Typeface scheherazade;
+
 
 
 
@@ -39,6 +42,9 @@ public class KuranDetailAdapter extends ArrayAdapter<KuranDetailWord> {
         TextView kuranArabic = convertView.findViewById(R.id.kuranArabic);
 
 
+
+
+
         kuranArabic.setTypeface(scheherazade);
 
 
@@ -47,8 +53,7 @@ public class KuranDetailAdapter extends ArrayAdapter<KuranDetailWord> {
         translit.setText(kuranDetailWord.kuranKazakh);
         kuranArabic.setText(kuranDetailWord.kuranArabic);
 
-        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.fade_in);
-        convertView.startAnimation(animation);
+
 
         return convertView;
     }

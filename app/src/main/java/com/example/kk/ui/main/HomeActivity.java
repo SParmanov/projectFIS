@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.kk.ui.setting.SettingFragment;
 import com.example.kk.ui.asma.AsmaFragment;
 import com.example.kk.ui.kuran.KuranFragment;
 import com.example.kk.ui.namaz.NamazFragment;
@@ -21,38 +22,40 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemReselectedListener(navigationItemReselectedListener);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NamazFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new KuranFragment()).commit();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
     }
 
-    private BottomNavigationView.OnNavigationItemReselectedListener navigationItemReselectedListener =
-            new BottomNavigationView.OnNavigationItemReselectedListener() {
-                @Override
-                public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragment = null;
+    BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            Fragment selectedFragment = null;
 
-                    switch (menuItem.getItemId()){
-                        case R.id.namaz:
-                            selectedFragment = new NamazFragment();
-                            break;
-                        case R.id.kuran:
-                            selectedFragment = new KuranFragment();
-                            break;
-                        case R.id.asma:
-                            selectedFragment = new AsmaFragment();
-                            break;
-                        default:
-                            selectedFragment = new NamazFragment();
-                            break;
-                    }
+            switch (menuItem.getItemId()){
+                case R.id.namaz:
+                    selectedFragment = new NamazFragment();
+                    break;
+                case R.id.kuran:
+                    selectedFragment = new KuranFragment();
+                    break;
+                case R.id.asma:
+                    selectedFragment = new AsmaFragment();
+                    break;
+                case R.id.setting:
+                    selectedFragment = new SettingFragment();
+                    break;
+                default:
+                    selectedFragment = new NamazFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+            return true;
+        }
+    };
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-
-                }
-            };
 }

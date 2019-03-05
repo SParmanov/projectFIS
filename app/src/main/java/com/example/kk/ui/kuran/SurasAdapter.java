@@ -63,7 +63,7 @@ public class SurasAdapter extends BaseAdapter {
         arabic_names.setText(sura.getArabic_names());
         lengthSura.setText(sura.getLengthSura()+" аят");
         kuranAddress.setText(sura.getKuranAddress());
-        
+
 
         return convertView;
     }

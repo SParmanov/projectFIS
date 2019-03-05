@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.kk.R;
 import com.example.kk.ui.main.HomeActivity;
+import com.github.barteksc.pdfviewer.PDFView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         new Handler().postDelayed(new Runnable(){
             @Override

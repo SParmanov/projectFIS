@@ -27,7 +27,8 @@ public class KuranFragment  extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView surasList = view.findViewById(R.id.list_sura);
+
+
 
         String []kazakh_names = getResources().getStringArray(R.array.kazakh_names);
         String []arabic_names = getResources().getStringArray(R.array.arabic_names);
@@ -35,7 +36,7 @@ public class KuranFragment  extends Fragment {
         String [] suraLength = getResources().getStringArray(R.array.suraLength);
 
 
-        ArrayList<Sura> suras = new ArrayList<>();
+        final ArrayList<Sura> suras = new ArrayList<>();
         for(int i=0;i<114;i++){
             suras.add(new Sura(i+1 , kazakh_names[i], arabic_names[i], suraLength[i] +"",kuranAddress[i] ));
         }
@@ -46,19 +47,21 @@ public class KuranFragment  extends Fragment {
         SurasAdapter adapter = new SurasAdapter(suras);
 
 
-        ListView listView = view.findViewById(R.id.kuranlist);
+        //ListView listView = view.findViewById(R.id.kuranlist);
+        ListView surasList = view.findViewById(R.id.list_sura);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        surasList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(KuranFragment.this, KuranDetailActivity.class);
-                intent.putExtra(KuranDetailActivity.ARG_ID, suras.get(position).id);
+                Intent intent = new Intent(getActivity(), SuraDetailActivity.class);
+                intent.putExtra(SuraDetailActivity.ARG_ID, suras.get(position).id);
                 startActivity(intent);
             }
         });
 
-        //surasList.setAdapter(adapter);
-        listView.setAdapter(adapter);
+
+        surasList.setAdapter(adapter);
     }
 }

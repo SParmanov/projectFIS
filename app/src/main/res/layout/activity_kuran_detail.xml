@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGray"
+    android:background="@color/color22"
     android:orientation="vertical"
     >
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/kuranDetailList"
-        android:background="@color/colorWhite"
+        android:background="@color/violet"
         android:layout_margin="20dp"
         android:layout_gravity="center"
         />
